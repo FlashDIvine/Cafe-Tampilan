@@ -6,6 +6,7 @@ import CategoryFilter from "./components/CategoryFilter";
 import MenuGrid from "./components/MenuGrid";
 import LoadingSkeleton from "./components/LoadingSkeleton";
 import Footer from "./components/Footer";
+import CartModal from "./components/CartModal";
 
 export default function App() {
   const [menus, setMenus] = useState([]);
@@ -131,6 +132,8 @@ export default function App() {
       </main>
 
       <Footer />
+
+      <CartModal />
     </div>
   );
 }

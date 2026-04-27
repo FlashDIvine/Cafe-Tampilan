@@ -1,9 +1,22 @@
+import { useState } from "react";
+import { useCart } from "../context/CartContext";
+
 export default function MenuCard({ item, index }) {
+  const { addToCart } = useCart();
+  const [added, setAdded] = useState(false);
+
   const formattedPrice = new Intl.NumberFormat("id-ID", {
     style: "currency",
     currency: "IDR",
     minimumFractionDigits: 0,
   }).format(item.price);
+
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
+    addToCart(item);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1200);
+  };
 
   return (
     <div
@@ -52,16 +65,36 @@ export default function MenuCard({ item, index }) {
           )}
         </div>
 
-        {/* Price */}
+        {/* Price + Add to Cart */}
         <div className="flex items-center justify-between pt-2 border-t border-white/[0.06]">
           <span className="text-lg font-bold text-gradient">
             {formattedPrice}
           </span>
-          <div className="w-8 h-8 rounded-lg bg-cafe-400/10 flex items-center justify-center group-hover:bg-cafe-400/20 transition-colors duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-cafe-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </div>
+          <button
+            id={`add-to-cart-${item.id}`}
+            onClick={handleAddToCart}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-300 ${
+              added
+                ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
+                : "bg-cafe-400/15 text-cafe-300 border border-cafe-400/20 hover:bg-cafe-400/25 hover:text-cafe-200 active:scale-[0.95]"
+            }`}
+          >
+            {added ? (
+              <>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Added
+              </>
+            ) : (
+              <>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                </svg>
+                Tambah
+              </>
+            )}
+          </button>
         </div>
       </div>
     </div>

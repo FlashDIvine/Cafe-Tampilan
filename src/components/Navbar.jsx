@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useCart } from "../context/CartContext";
 
 const ICON_SEARCH = (
   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -6,20 +7,25 @@ const ICON_SEARCH = (
   </svg>
 );
 
-const ICON_COFFEE = (
-  <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-  </svg>
-);
-
 export default function Navbar({ searchQuery, onSearchChange }) {
   const [scrolled, setScrolled] = useState(false);
+  const { toggleCart, cartCount } = useCart();
+  const [bounce, setBounce] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Bounce animation when cart count changes
+  useEffect(() => {
+    if (cartCount > 0) {
+      setBounce(true);
+      const timer = setTimeout(() => setBounce(false), 400);
+      return () => clearTimeout(timer);
+    }
+  }, [cartCount]);
 
   return (
     <nav
@@ -60,11 +66,28 @@ export default function Navbar({ searchQuery, onSearchChange }) {
             />
           </div>
 
-          {/* Badge */}
-          <div className="hidden sm:flex items-center gap-2 text-cafe-300/60 text-sm">
-            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Live Menu</span>
-          </div>
+          {/* Cart Button */}
+          <button
+            id="cart-toggle-btn"
+            onClick={toggleCart}
+            className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-cafe-200/60 hover:text-white hover:bg-white/[0.10] hover:border-white/[0.15] transition-all duration-300 active:scale-[0.95]"
+            aria-label="Open cart"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+
+            {/* Badge */}
+            {cartCount > 0 && (
+              <span
+                className={`absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-gradient-to-r from-cafe-300 to-cafe-400 flex items-center justify-center text-[10px] font-bold text-white shadow-lg shadow-cafe-400/30 ${
+                  bounce ? "animate-bounce-in" : ""
+                }`}
+              >
+                {cartCount > 99 ? "99+" : cartCount}
+              </span>
+            )}
+          </button>
         </div>
       </div>
     </nav>
