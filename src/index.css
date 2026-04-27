@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cafe-950 text-white antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  ::selection {
+    @apply bg-cafe-500/40 text-white;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-cafe-950;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cafe-800 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-cafe-700;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl;
+  }
+
+  .glass-hover {
+    @apply hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-cafe-400 to-cafe-500 text-white font-medium 
+           px-5 py-2.5 rounded-xl transition-all duration-300
+           hover:from-cafe-300 hover:to-cafe-400 hover:shadow-lg hover:shadow-cafe-400/30
+           active:scale-[0.97];
+  }
+
+  .btn-ghost {
+    @apply px-5 py-2.5 rounded-xl font-medium transition-all duration-300
+           text-cafe-200 hover:text-white hover:bg-white/[0.08]
+           active:scale-[0.97];
+  }
+
+  .glow {
+    @apply relative;
+  }
+
+  .glow::before {
+    content: '';
+    @apply absolute -inset-1 bg-gradient-to-r from-cafe-300/25 to-cafe-200/20 
+           rounded-2xl blur-xl opacity-0 transition-opacity duration-500;
+  }
+
+  .glow:hover::before {
+    @apply opacity-100;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-cafe-200 via-cafe-300 to-cafe-400 bg-clip-text text-transparent;
+  }
+
+  .animate-stagger {
+    animation-fill-mode: both;
+  }
+}
