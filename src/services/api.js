@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://web-production-c0c32.up.railway.app";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://web-production-c0c32.up.railway.app/api";
 
 // ── Dummy fallback data ──────────────────────────────
 const DUMMY_CATEGORIES = [

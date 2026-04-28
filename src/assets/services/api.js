@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://web-production-c0c32.up.railway.app";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://web-production-c0c32.up.railway.app/api";
 
 export const getMenus = async () => {
   const res = await fetch(`${API_BASE}/menus`);
