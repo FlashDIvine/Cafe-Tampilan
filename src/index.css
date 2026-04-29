@@ -3,10 +3,21 @@
 @tailwind utilities;
 
 @layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   body {
     @apply bg-cafe-950 text-white antialiased;
     font-family: 'Inter', system-ui, sans-serif;
     overflow-x: hidden;
+    width: 100%;
+    min-width: 0;
   }
 
   ::selection {

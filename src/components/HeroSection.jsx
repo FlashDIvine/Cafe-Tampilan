@@ -1,6 +1,6 @@
 export default function HeroSection({ totalItems }) {
   return (
-    <section id="hero" className="relative pt-28 sm:pt-36 pb-10 sm:pb-14">
+    <section id="hero" className="relative pt-28 sm:pt-36 pb-10 sm:pb-14 overflow-hidden">
       {/* Background Glow Effects */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-cafe-400/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-20 right-1/4 w-72 h-72 bg-cafe-300/8 rounded-full blur-[100px] pointer-events-none" />

@@ -37,9 +37,9 @@ export default function Navbar({ searchQuery, onSearchChange }) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="flex items-center h-16 sm:h-20 gap-3 sm:gap-4">
           {/* Logo */}
-          <a href="/" id="logo" className="flex items-center gap-3 group">
+          <a href="/" id="logo" className="flex items-center gap-3 group flex-shrink-0">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cafe-300 to-cafe-500 flex items-center justify-center shadow-lg shadow-cafe-300/20 group-hover:shadow-cafe-300/40 transition-shadow duration-300">
               <span className="text-white text-lg font-bold font-display">C</span>
             </div>
@@ -49,7 +49,7 @@ export default function Navbar({ searchQuery, onSearchChange }) {
           </a>
 
           {/* Search Bar */}
-          <div className="relative flex-1 max-w-md ml-4 sm:mx-8">
+          <div className="relative flex-1 min-w-0">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-cafe-300">
               {ICON_SEARCH}
             </div>
@@ -70,7 +70,7 @@ export default function Navbar({ searchQuery, onSearchChange }) {
           <button
             id="cart-toggle-btn"
             onClick={toggleCart}
-            className="cart-button sm:relative sm:top-auto sm:right-auto sm:z-auto w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/[0.06] sm:bg-white/[0.06] backdrop-blur-md sm:backdrop-blur-none border border-white/[0.08] flex items-center justify-center text-cafe-200/60 hover:text-white hover:bg-white/[0.10] hover:border-white/[0.15] transition-all duration-300 active:scale-[0.95]"
+            className="relative flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-cafe-200/60 hover:text-white hover:bg-white/[0.10] hover:border-white/[0.15] transition-all duration-300 active:scale-[0.95]"
             aria-label="Open cart"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>

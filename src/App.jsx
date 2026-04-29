@@ -58,7 +58,7 @@ export default function App() {
   }, [activeCategory, searchQuery]);
 
   return (
-    <div className="min-h-screen bg-cafe-950">
+    <div className="min-h-screen bg-cafe-950 overflow-x-hidden">
       <Navbar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
       <HeroSection totalItems={menus.length} />
