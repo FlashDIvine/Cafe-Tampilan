@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { fetchMenus, fetchCategories } from "./services/api";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
@@ -7,7 +7,6 @@ import MenuGrid from "./components/MenuGrid";
 import LoadingSkeleton from "./components/LoadingSkeleton";
 import Footer from "./components/Footer";
 import CartModal from "./components/CartModal";
-import AdminPanel from "./components/AdminPanel";
 
 export default function App() {
   const [menus, setMenus] = useState([]);
@@ -16,7 +15,6 @@ export default function App() {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState(null);
-  const [isAdminOpen, setIsAdminOpen] = useState(false);
 
   useEffect(() => {
     async function loadData() {
@@ -37,57 +35,6 @@ export default function App() {
       }
     }
     loadData();
-  }, []);
-
-  // ── Optimistic Update Handlers ──────────────────────
-  // These update local state INSTANTLY — no refetch needed
-
-  /**
-   * Optimistically add a category to the UI.
-   * Called from AdminPanel BEFORE the API responds.
-   */
-  const handleCategoryAdded = useCallback((newCategory) => {
-    setCategories((prev) => [...prev, newCategory]);
-  }, []);
-
-  /**
-   * Replace a temporary optimistic category with the real server response.
-   * Called after API returns successfully.
-   */
-  const handleCategoryConfirmed = useCallback((tempId, serverCategory) => {
-    setCategories((prev) =>
-      prev.map((cat) => (cat.id === tempId ? serverCategory : cat))
-    );
-  }, []);
-
-  /**
-   * Rollback an optimistic category if the API call failed.
-   */
-  const handleCategoryRollback = useCallback((tempId) => {
-    setCategories((prev) => prev.filter((cat) => cat.id !== tempId));
-  }, []);
-
-  /**
-   * Optimistically add a menu to the UI.
-   */
-  const handleMenuAdded = useCallback((newMenu) => {
-    setMenus((prev) => [...prev, newMenu]);
-  }, []);
-
-  /**
-   * Replace a temporary optimistic menu with the real server response.
-   */
-  const handleMenuConfirmed = useCallback((tempId, serverMenu) => {
-    setMenus((prev) =>
-      prev.map((m) => (m.id === tempId ? serverMenu : m))
-    );
-  }, []);
-
-  /**
-   * Rollback an optimistic menu if the API call failed.
-   */
-  const handleMenuRollback = useCallback((tempId) => {
-    setMenus((prev) => prev.filter((m) => m.id !== tempId));
   }, []);
 
   // Filter menus based on search + category
@@ -115,7 +62,6 @@ export default function App() {
       <Navbar
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
-        onAdminToggle={() => setIsAdminOpen(true)}
       />
 
       <HeroSection totalItems={menus.length} />
@@ -191,19 +137,6 @@ export default function App() {
       <Footer />
 
       <CartModal />
-
-      {/* Admin Panel — optimistic update handlers passed as props */}
-      <AdminPanel
-        isOpen={isAdminOpen}
-        onClose={() => setIsAdminOpen(false)}
-        categories={categories}
-        onCategoryAdded={handleCategoryAdded}
-        onCategoryConfirmed={handleCategoryConfirmed}
-        onCategoryRollback={handleCategoryRollback}
-        onMenuAdded={handleMenuAdded}
-        onMenuConfirmed={handleMenuConfirmed}
-        onMenuRollback={handleMenuRollback}
-      />
     </div>
   );
 }

@@ -7,7 +7,7 @@ const ICON_SEARCH = (
   </svg>
 );
 
-export default function Navbar({ searchQuery, onSearchChange, onAdminToggle }) {
+export default function Navbar({ searchQuery, onSearchChange }) {
   const [scrolled, setScrolled] = useState(false);
   const { toggleCart, cartCount } = useCart();
   const [bounce, setBounce] = useState(false);
@@ -65,22 +65,6 @@ export default function Navbar({ searchQuery, onSearchChange, onAdminToggle }) {
                          transition-all duration-300"
             />
           </div>
-
-          {/* Admin Button */}
-          {onAdminToggle && (
-            <button
-              id="admin-toggle-btn"
-              onClick={onAdminToggle}
-              className="relative flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-cafe-200/60 hover:text-amber-400 hover:bg-amber-400/10 hover:border-amber-400/20 transition-all duration-300 active:scale-[0.95]"
-              aria-label="Open admin panel"
-              title="Admin Panel"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-            </button>
-          )}
 
           {/* Cart Button */}
           <button
