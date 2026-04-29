@@ -1,0 +1,6 @@
+{
+  "appId": "com.cafe.app",
+  "appName": "CafeApp",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

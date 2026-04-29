@@ -1,0 +1,13 @@
+
+> cafe-frontend@0.0.0 build
+> vite build
+
+[36mvite v8.0.10 [32mbuilding client environment for production...[36m[39m
+[2Ktransforming...✓ 27 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.93 kB │ gzip:  0.50 kB
+dist/assets/index-p0txCgQC.css   28.76 kB │ gzip:  5.76 kB
+dist/assets/index-Dq29KBeT.js   222.23 kB │ gzip: 68.29 kB
+
+[32m✓ built in 1.15s[39m
