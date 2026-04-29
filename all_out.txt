@@ -21,3 +21,11 @@ dist/assets/index-LHumwphq.js   222.15 kB │ gzip: 68.24 kB
 √ Creating capacitor.config.json in android\app\src\main\assets in 2.43ms
 √ copy android in 85.99ms
 √ Updating Android plugins in 5.62ms
+√ update android in 165.00ms
+√ copy web in 21.06ms
+√ update web in 10.32ms
+[info] Sync finished in 0.351s
+=== Pushing to GitHub ===
+[main 12bb998] Fix mobile horizontal overflow: add min-w-0, flex-shrink-0, overflow-hidden, box-sizing
+ 7 files changed, 33 insertions(+), 20 deletions(-)
+=== All done! ===

@@ -1,2 +1,10 @@
 [33m[33m[PLUGIN_TIMINGS] Warning:[0m Your build spent significant time in plugin `vite:css`. See https://rolldown.rs/options/checks#plugintimings for more details.
 [39m
+warning: in the working copy of 'all_err.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_sync_push.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/App.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/HeroSection.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Navbar.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/index.css', LF will be replaced by CRLF the next time Git touches it
+To https://github.com/FlashDIvine/Cafe-Tampilan.git
+   9488c9b..12bb998  main -> main

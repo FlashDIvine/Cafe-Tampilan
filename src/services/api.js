@@ -107,6 +107,56 @@ export async function fetchCategories() {
   }
 }
 
+// ── Create Category (optimized: returns only created item) ───
+/**
+ * POST /api/categories
+ * @param {{ name: string }} data
+ * @returns {Promise<Object>} The created category
+ */
+export async function createCategory(data) {
+  const res = await fetch(`${BASE_URL}/categories`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  const json = await res.json();
+
+  if (!res.ok || !json.success) {
+    throw new Error(json.message || "Gagal membuat kategori");
+  }
+
+  return json.data; // Returns ONLY the created item — no refetch needed
+}
+
+// ── Create Menu (optimized: returns only created item) ───────
+/**
+ * POST /api/menus
+ * @param {{ name: string, category_id?: number, price: number, description?: string, image?: string }} data
+ * @returns {Promise<Object>} The created menu with category relation
+ */
+export async function createMenu(data) {
+  const res = await fetch(`${BASE_URL}/menus`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  const json = await res.json();
+
+  if (!res.ok || !json.success) {
+    throw new Error(json.message || "Gagal membuat menu");
+  }
+
+  return json.data; // Returns ONLY the created item with category — no refetch needed
+}
+
 // ── Create Order ─────────────────────────────────────
 /**
  * POST /api/orders
