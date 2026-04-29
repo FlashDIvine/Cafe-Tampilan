@@ -1,0 +1,12 @@
+
+> cafe-frontend@0.0.0 cap
+> cap sync
+
+√ Copying web assets from dist to android\app\src\main\assets\public in 34.57ms
+√ Creating capacitor.config.json in android\app\src\main\assets in 1.24ms
+√ copy android in 82.12ms
+√ Updating Android plugins in 4.14ms
+√ update android in 147.25ms
+√ copy web in 8.45ms
+√ update web in 9.77ms
+[info] Sync finished in 0.343s

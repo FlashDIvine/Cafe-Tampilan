@@ -1,0 +1,10 @@
+[main 73b7f5e] Fix cart button overflow on mobile and initialize Capacitor Android project
+ 13 files changed, 973 insertions(+), 18 deletions(-)
+ create mode 100644 build_err.txt
+ create mode 100644 build_out.txt
+ create mode 100644 capacitor.config.json
+ create mode 100644 git_err.txt
+ create mode 100644 git_out.txt
+ create mode 100644 push.bat
+ create mode 100644 sync_err.txt
+ create mode 100644 sync_out.txt

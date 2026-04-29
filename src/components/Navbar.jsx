@@ -70,7 +70,7 @@ export default function Navbar({ searchQuery, onSearchChange }) {
           <button
             id="cart-toggle-btn"
             onClick={toggleCart}
-            className="fixed top-3 right-3 z-[1000] sm:relative sm:top-auto sm:right-auto sm:z-auto w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/[0.06] sm:bg-white/[0.06] backdrop-blur-md sm:backdrop-blur-none border border-white/[0.08] flex items-center justify-center text-cafe-200/60 hover:text-white hover:bg-white/[0.10] hover:border-white/[0.15] transition-all duration-300 active:scale-[0.95]"
+            className="cart-button sm:relative sm:top-auto sm:right-auto sm:z-auto w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/[0.06] sm:bg-white/[0.06] backdrop-blur-md sm:backdrop-blur-none border border-white/[0.08] flex items-center justify-center text-cafe-200/60 hover:text-white hover:bg-white/[0.10] hover:border-white/[0.15] transition-all duration-300 active:scale-[0.95]"
             aria-label="Open cart"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
