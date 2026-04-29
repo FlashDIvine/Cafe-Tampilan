@@ -1,0 +1,23 @@
+Running build...
+
+> cafe-frontend@0.0.0 build
+> vite build
+
+[36mvite v8.0.10 [32mbuilding client environment for production...[36m[39m
+[2Ktransforming...✓ 27 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.93 kB │ gzip:  0.50 kB
+dist/assets/index-CpSgYyrt.css   28.68 kB │ gzip:  5.74 kB
+dist/assets/index-CG1XliS6.js   222.21 kB │ gzip: 68.28 kB
+
+[32m✓ built in 1.25s[39m
+Syncing capacitor...
+
+> cafe-frontend@0.0.0 cap
+> cap sync
+
+√ Copying web assets from dist to android\app\src\main\assets\public in 26.74ms
+√ Creating capacitor.config.json in android\app\src\main\assets in 2.06ms
+√ copy android in 58.04ms
+√ Updating Android plugins in 3.34ms

@@ -49,7 +49,7 @@ export default function Navbar({ searchQuery, onSearchChange }) {
           </a>
 
           {/* Search Bar */}
-          <div className="relative flex-1 max-w-md ml-4 mr-14 sm:mx-8">
+          <div className="relative flex-1 max-w-md ml-4 sm:mx-8">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-cafe-300">
               {ICON_SEARCH}
             </div>

@@ -1,0 +1,8 @@
+warning: in the working copy of 'git_err.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'git_out.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Navbar.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/index.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'push_fix.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'sync_out3.txt', LF will be replaced by CRLF the next time Git touches it
+To https://github.com/FlashDIvine/Cafe-Tampilan.git
+   73b7f5e..4edb417  main -> main
