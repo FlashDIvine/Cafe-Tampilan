@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useMemo, useCallback } from "react";
+import { createContext, useContext, useState, useMemo, useCallback, useEffect } from "react";
 
 const CartContext = createContext(null);
 
@@ -11,8 +11,24 @@ export function useCart() {
 }
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    try {
+      const stored = localStorage.getItem("cart");
+      return stored ? JSON.parse(stored) : [];
+    } catch (e) {
+      console.error("Failed to parse cart from localStorage", e);
+      return [];
+    }
+  });
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+    } catch (e) {
+      console.error("Failed to save cart to localStorage", e);
+    }
+  }, [cartItems]);
 
   // ── Actions ────────────────────────────────────────
 
