@@ -294,7 +294,7 @@ export default function CartModal() {
                 <IconCheck />
               </div>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Pesanan Terkirim!</h3>
+            <h3 className="text-xl font-semibold text-white mb-2">Pesanan Tersimpan!</h3>
             <p className="text-sm text-cafe-200/50 text-center max-w-xs">
               Mengalihkan ke WhatsApp...
             </p>
