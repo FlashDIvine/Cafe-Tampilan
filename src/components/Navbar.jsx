@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useCart } from "../context/CartContext";
+import logoKoper from "../assets/logokoper.svg";
 
 const ICON_SEARCH = (
   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -40,11 +41,9 @@ export default function Navbar({ searchQuery, onSearchChange }) {
         <div className="flex items-center h-16 sm:h-20 gap-3 sm:gap-4">
           {/* Logo */}
           <a href="/" id="logo" className="flex items-center gap-3 group flex-shrink-0">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cafe-300 to-cafe-500 flex items-center justify-center shadow-lg shadow-cafe-300/20 group-hover:shadow-cafe-300/40 transition-shadow duration-300">
-              <span className="text-white text-lg font-bold font-display">C</span>
-            </div>
+            <img src={logoKoper} alt="Logo Koper" className="w-10 h-10 object-contain drop-shadow-lg group-hover:scale-105 transition-transform duration-300" />
             <span className="text-xl font-display font-semibold text-white tracking-tight hidden sm:block">
-              Café<span className="text-cafe-300">Menu</span>
+              Kopi<span className="text-cafe-300">Pelajar</span>
             </span>
           </a>
 

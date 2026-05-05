@@ -1,14 +1,14 @@
+import logoKoper from "../assets/logokoper.svg";
+
 export default function Footer() {
   return (
     <footer id="footer" className="mt-20 border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cafe-300 to-cafe-500 flex items-center justify-center">
-              <span className="text-white text-sm font-bold font-display">C</span>
-            </div>
+            <img src={logoKoper} alt="Logo KoPer" className="w-8 h-8 object-contain drop-shadow-md opacity-80" />
             <span className="text-sm text-cafe-200/40">
-              © {new Date().getFullYear()} CaféMenu. All rights reserved.
+              © {new Date().getFullYear()} KoPer. All rights reserved.
             </span>
           </div>
 

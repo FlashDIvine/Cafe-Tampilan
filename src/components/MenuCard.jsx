@@ -35,7 +35,7 @@ export default function MenuCard({ item, index }) {
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-cafe-900 to-cafe-950">
-            <span className="text-5xl opacity-40">🍽️</span>
+            <span className="text-5xl opacity-40"></span>
           </div>
         )}
 
